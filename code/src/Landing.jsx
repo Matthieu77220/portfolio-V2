@@ -8,7 +8,7 @@ function Landing() {
       <section className="relative">
         <img
           src="../public/img/background.jpg"
-          className="object-cover w-screen h-screen "
+          className="object-cover w-screen h-screen"
         />
       </section>
 
@@ -22,11 +22,11 @@ function Landing() {
         text-gray-400 font-bold text-4xl
         sm:text-5xl sm:ml-[8vw]
         md:text-5xl md:ml-[15vw]
-        lg:text-6xl lg:mr-[15vw]
-        xl:text-7xl xl:
+        lg:text-6xl
+        xl:text-7xl xl:mr-[13vw] xl:ml-55
         "
         >
-          Bienvenue sur mon Portfolio !
+          Bienvenue sur mon Portfolio 
         </h1>
       </section>
 
