@@ -1,116 +1,44 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import MouseTrail from "./MouseTrail";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { TbFileCv } from "react-icons/tb";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 function Landing() {
   const navigate = useNavigate();
-
-   const canvas = document.getElementById('canvas1');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const particlesArray = [];
-    let hue = 0;
-    let frame = 0;
-
-    window.addEventListener('resize', function(){
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-
-    const mouse = {
-        x: undefined,
-        y: undefined,
-    }
-    canvas.addEventListener('click', function(event){
-        mouse.x = event.x;
-        mouse.y = event.y;
-        hue+=8;
-        if (particlesArray.length < 100){
-              for (let i = 0; i < 20; i++){
-            particlesArray.push(new Particle());
-          }
-        }
-    });
-
-    canvas.addEventListener('mousemove', function(event){
-        mouse.x = event.x;
-        mouse.y = event.y;
-        hue+=2;
-        if (frame % 2 === 0){
-          for (let i = 0; i < 7; i++){
-            particlesArray.push(new Particle());
-          }
-        }
-    });
-
-    class Particle {
-        constructor(){
-            this.x = mouse.x;
-            this.y = mouse.y;
-            this.size = Math.random() * 15 + 1;
-            this.speedX = Math.random() * 3 - 1.5;
-            this.speedY = Math.random() * 3 - 1.5;
-            
-            const colors = ['#000000', '#888888', '#FFFFFF']; // noir, gris, blanc
-            this.color = colors[Math.floor(Math.random() * colors.length)];
-
-        }
-        update(){
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.size > 0.2) this.size -= 0.1;
-        }
-        draw(){
-            ctx.fillStyle = this.color;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    function handleParticles(){
-        for (let i = 0; i < particlesArray.length; i++){
-            for (let j = i; j < particlesArray.length; j++){
-                const dx = particlesArray[i].x - particlesArray[j].x;
-                const dy = particlesArray[i].y - particlesArray[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100){
-                    ctx.beginPath();
-                    ctx.strokeStyle = particlesArray[i].color;
-                    ctx.lineWidth = 0.2;
-                    ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-                    ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                    ctx.stroke();
-                    ctx.closePath();
-                }
-            }
-            particlesArray[i].update();
-            particlesArray[i].draw();
-          
-            if (particlesArray[i].size <= 0.3){
-                particlesArray.splice(i, 1);
-                console.log(particlesArray.length);
-                i--;
-            }
-        }
-    }
-
-    function animate(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //ctx.fillStyle = 'rgba(0,0,0,0.02)';
-        //ctx.fillRect(0, 0, canvas.width, canvas.height);
-        handleParticles();
-        frame++;
-        requestAnimationFrame(animate);
-    }
-    animate();
+  const [open, setOpen] = useState(false)
 
   return (
     <div className="flex justify-center">
-      <section className="relative">
+
+      <header className="z-50">
+        
+          <nav className="sm:hidden md:hidden lg:flex">
+            <ul className="flex absolute right-0 mx-[8vw] my-[4vh] px-[8vw] py-[2vh] gap-30 rounded-xl text-white bg-[#F3752B]">
+              <li className="hover:scale-150"><a href="https://github.com/Matthieu77220" target="_blank"className="text-4xl"><FaGithub /></a></li>
+              <li className="hover:scale-150"><a href="https://www.linkedin.com/in/matthieu-dietrich-6b441b390/" target="_blank" className="text-4xl"><FaLinkedin /></a></li>
+              <li className="hover:scale-150"><a href="../public/Mon-cv.pdf" target="_blank" rel="noopener noreferrer" className="text-4xl"><TbFileCv /></a></li>
+            </ul>
+          </nav>
+
+        <section className="">
+          <nav>
+            <ul className="flex flex-column text-white bg-[#F3752B]">
+              <li className="hover:scale-150"><a href="https://github.com/Matthieu77220" target="_blank" className="text-4xl"></a></li>
+              <li className="hover:scale-150"><a href="https://www.linkedin.com/in/matthieu-dietrich-6b441b390/" target="_blank" className="text-4xl"></a></li>
+              <li className="hover:scale-150"><a href="../public/Mon-cv.pdf" target="_blank" className="text-4xl"></a></li>
+            </ul>
+          </nav>
+        </section>
+      </header>
+
+      <section className="relative w-full">
         <img
-          src="../public/img/background.jpg"
-          className="object-cover w-screen h-screen"
+          src="../public/img/Background.jpg"
+          className="h-screen w-[45vw] left-0"
         />
       </section>
 
@@ -121,7 +49,7 @@ function Landing() {
       >
         <h1
           className="
-        text-gray-400 font-bold text-4xl text-shadow-md text-shadow-gray-400
+        text-[#F3752B] font-bold text-4xl text-shadow-md text-shadow-gray-400 
         sm:text-5xl sm:ml-[8vw]
         md:text-5xl md:ml-[15vw]
         lg:text-6xl
@@ -138,21 +66,22 @@ function Landing() {
       transform-3d
       perspective-origin-bottom
       perspective-near
+      
       "
       >
         <button
           type="button"
           onClick={() => navigate("/content")}
           className="
-          cursor-pointer border-2 bg-gray-400 text-white rounded-full p-3 w-3xs transition dur
+          cursor-pointer border-2 bg-[#F3752B] text-white rounded-full p-3 w-3xs transition duration-300
           sm:p-4 sm:w-xs sm:text-xl sm:font-semibold
           lg:p-5 lg:w-sm lg:text-2xl lg:font-bold
-          hover:translate-z-8 hover:rotate-x-10 hover:rotate-y-1 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50"
+          hover:translate-z-8 hover:rotate-x-13 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300"
         >
           <p>C'est parti !</p>
         </button>
       </section>
-      <canvas id="canvas1" className="absolute w-full h-full top-0 left-0"></canvas>
+      <MouseTrail />
     </div>
   );
 }
