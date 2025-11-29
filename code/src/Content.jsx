@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import MouseTrail from './components/MouseTrail';
 import Me from './components/Me';
+import Formation from './components/Formation';
 
 function Content() {
   return (
@@ -11,11 +12,11 @@ function Content() {
       <Header />
 
        <Scroll />
-      <section className="flex-col">
-        <h1 className="text-center text-5xl font-bold text-[#F3752B] underline decoration-solid mt-[8vh]">
+      <section className="flex flex-col">
+        <h1 className="text-center text-5xl font-bold text-[#F3752B] underline decoration-solid mt-[8vh]" id="Me">
           Matthieu Dietrich
         </h1>
-        <section className="relative flexp-0 mx-0">
+        <section className="relative flex p-0 mx-0">
             <video 
             muted 
             autoPlay
@@ -30,11 +31,46 @@ function Content() {
 
         </section>
 
-          <section className="flex h-[40vh] px-[10vw] justify-center my-[5vh]" id="Me">
+          <section className="flex h-[40vh] px-[10vw] justify-center my-[5vh]">
             <Me />
           </section>
+        </section>
 
+      {/*****************************************************************************************************/}
+
+      <section className="flex flex-col">
+        
+          <h2 className="text-[#F3752B] text-5xl text-center font-bold underline decoration-solid mt-[8vh]" id="Formation">
+            Ma formation
+          </h2>
+
+        <section className="flex">
+
+        <section className="relative flex p-0 mx-0">
+          <video
+          muted
+          autoPlay
+          loop
+          className="object-cover my-[15vh] w-[40vw]"
+          >
+              <source 
+              src="../video/Bandeau2.mp4"
+              type="video/mp4"
+              />
+          </video>
+
+        </section>
+
+        <section className="w-[45vw] absolute right-20 mt-[40vh]">
+          <Formation />
+        </section>
+
+        </section>
+        
       </section>
+
+      {/************************************************************************************************************/}
+
       <Footer />
       <MouseTrail />
     </>
