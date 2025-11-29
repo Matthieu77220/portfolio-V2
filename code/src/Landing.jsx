@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import MouseTrail from "./MouseTrail";
+import MouseTrail from "./components/MouseTrail";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { TbFileCv } from "react-icons/tb";
@@ -97,7 +97,7 @@ function Landing() {
 
           {open && (
             <div 
-              className="fixed inset-0 bg-black bg-opacity-50 -z-10"
+              className="fixed inset-0 bg-opacity-50 -z-10"
               onClick={() => setOpen(false)}
             />
           )}
@@ -106,7 +106,7 @@ function Landing() {
 
       <section className="relative w-full">
         <img
-          src="../public/img/Background.jpg"
+          src="../img/Background.jpg"
           alt="Background"
           className="h-screen w-[45vw] left-0"
         />

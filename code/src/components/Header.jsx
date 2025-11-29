@@ -3,15 +3,18 @@ function Header() {
     return ( 
         <div className="flex justitfy-center">
 
-            <section className="fixed top-0 bg-gray-400 opacity-65 shadow-xl text-white w-full">
+            <section className="
+            fixed top-0 z-50 bg-[#F3752B] opacity-65 shadow-xl text-white w-full py-2
+            hover:opacity-100
+            ">
                 <nav className="flex">
                     <ul className="flex">
-                        <li className="px-2 py-2">Qui je suis ?</li>
-                        <li className="px-2 py-2">Ma formation</li>
-                        <li className="px-2 py-2">Mon expérience professionnel</li>
-                        <li className="px-2 py-2">Mes compétences</li>
-                        <li className="px-2 py-2">Mes projets</li>
-                        <li className="px-2 py-2">Me contacter</li>
+                        <li className="px-2 py-2 hover:underline"><a href="#Me">Qui je suis ?</a></li>
+                        <li className="px-2 py-2 hover:underline"><a href="#">Ma formation</a></li>
+                        <li className="px-2 py-2 hover:underline"><a href="#">Mon expérience professionnel</a></li>
+                        <li className="px-2 py-2 hover:underline"><a href="#">Mes compétences</a></li>
+                        <li className="px-2 py-2 hover:underline"><a href="#">Mes projets</a></li>
+                        <li className="px-2 py-2 hover:underline"><a href="#">Veille Techno</a></li>
                     </ul>
                 </nav>
             </section>
