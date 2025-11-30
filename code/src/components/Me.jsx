@@ -2,7 +2,7 @@ function Me() {
     return ( 
         <>
           <section className="
-          bg-[#FFF07C] rounded-2xl justify-center transition duration-250 px-3
+          bg-[#FFF07C] rounded-2xl justify-center transition duration-300 px-3
           transform-3d perspective-origin-bottom perspective-near
           hover:translate-z-8 hover:rotate-x-20 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300 hover:ring-[#F3752B]
           ">

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import MouseTrail from './components/MouseTrail';
 import Me from './components/Me';
 import Formation from './components/Formation';
+import Experience from './components/Experience';
 
 function Content() {
   return (
@@ -61,7 +62,7 @@ function Content() {
 
         </section>
 
-        <section className="w-[45vw] absolute right-20 mt-[40vh]">
+        <section className="w-[45vw] absolute right-20 mt-[55vh]">
           <Formation />
         </section>
 
@@ -70,6 +71,16 @@ function Content() {
       </section>
 
       {/************************************************************************************************************/}
+
+      <section className="flex flex-col">
+        <h2 className="text-[#F3752B] text-5xl text-center font-bold underline decoration-solid mt-[8vh]" id="Exp">
+          Mon expérience professionnel
+        </h2>
+
+        <section className="flex justify-center mt-[10vh]">
+          <Experience />
+        </section>
+      </section>
 
       <Footer />
       <MouseTrail />
