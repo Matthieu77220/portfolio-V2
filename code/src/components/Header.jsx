@@ -12,7 +12,7 @@ function Header() {
                         <li className="px-2 py-2 hover:underline"><a href="#Me">Qui je suis ?</a></li>
                         <li className="px-2 py-2 hover:underline"><a href="#Formation">Ma formation</a></li>
                         <li className="px-2 py-2 hover:underline"><a href="#Exp">Mon expérience professionnel</a></li>
-                        <li className="px-2 py-2 hover:underline"><a href="#">Mes compétences</a></li>
+                        <li className="px-2 py-2 hover:underline"><a href="#Skill">Mes compétences</a></li>
                         <li className="px-2 py-2 hover:underline"><a href="#">Mes projets</a></li>
                         <li className="px-2 py-2 hover:underline"><a href="#">Veille Techno</a></li>
                     </ul>

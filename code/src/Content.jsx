@@ -6,6 +6,7 @@ import MouseTrail from './components/MouseTrail';
 import Me from './components/Me';
 import Formation from './components/Formation';
 import Experience from './components/Experience';
+import Skill from './components/Skill';
 
 function Content() {
   return (
@@ -79,6 +80,17 @@ function Content() {
 
         <section className="flex justify-center mt-[10vh]">
           <Experience />
+        </section>
+      </section>
+
+      {/**************************************************************************************************************/}
+
+      <section className="flex flex-col">
+        <h2 className="text-[#F3752B] text-5xl text-center font-bold underline decoration-solid my-[8vh]" id="Skill" >
+          Mes compétences
+        </h2>
+        <section classname="flex justfiy-center mt-[10vh]">
+          <Skill />
         </section>
       </section>
 
