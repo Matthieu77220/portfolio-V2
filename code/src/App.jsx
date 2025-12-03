@@ -8,7 +8,7 @@ import Contact from "./components/Contact.jsx";
 function App() {
   return (
     <>
-      <Router basename="/portfolio-V2">
+      <Router>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/content" element={<Content />} />
