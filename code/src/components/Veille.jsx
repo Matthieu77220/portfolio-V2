@@ -25,7 +25,7 @@ function Veille() {
                     </p>
                     <div className="flex justify-center mt-8">
                         <a 
-                            href="../../Veille_techno.odp" 
+                            href={`${import.meta.env.BASE_URL}Veille_techno.odp`} 
                             target="_blank"
                             className="bg-[#F3752B] text-[#FFF07C] px-8 py-3 rounded-lg font-bold 
                             hover:bg-[#d86524] transition duration-300 hover:scale-105 shadow-lg"
