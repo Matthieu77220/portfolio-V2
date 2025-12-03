@@ -45,7 +45,7 @@ function Footer() {
                         <FaLinkedin />
                     </a>
                     <a 
-                        href="../public/Mon-cv.pdf" 
+                        href={`${import.meta.env.BASE_URL}Mon-cv.pdf`}
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="text-white hover:text-[#FFF07C] text-3xl hover:scale-125 transition-transform"
@@ -53,7 +53,7 @@ function Footer() {
                         <TbFileCv />
                     </a>
                     <a 
-                        href="../public/Tab_synthèse.xlsx" 
+                        href={`${import.meta.env.BASE_URL}Tab_synthèse.xlsx`} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="text-white hover:text-[#FFF07C] text-3xl hover:scale-125 transition-transform"
@@ -102,7 +102,7 @@ function Footer() {
                         <FaLinkedin />
                     </a>
                     <a 
-                        href="../public/Mon-cv.pdf" 
+                        href={`${import.meta.env.BASE_URL}Mon-cv.pdf`}
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="text-white hover:text-[#FFF07C] text-3xl hover:scale-125 transition-transform"
@@ -110,7 +110,7 @@ function Footer() {
                         <TbFileCv />
                     </a>
                      <a 
-                        href="../public/Tab_synthèse.xlsx" 
+                        href={`${import.meta.env.BASE_URL}Tab_synthèse.xlsx`} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="text-white hover:text-[#FFF07C] text-3xl hover:scale-125 transition-transform"

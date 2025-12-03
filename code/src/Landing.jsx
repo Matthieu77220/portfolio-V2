@@ -31,12 +31,12 @@ function Landing() {
                 </a>
               </li>
               <li className="hover:scale-150 transition-transform">
-                <a href="../public/Mon-cv.pdf" target="_blank" rel="noopener noreferrer" className="text-4xl">
+                <a href={`${import.meta.env.BASE_URL}Mon-cv.pdf`} target="_blank" rel="noopener noreferrer" className="text-4xl">
                   <TbFileCv />
                 </a>
               </li>
               <li className="hover:scale-150 transition-transform">
-                <a href="../public/Tab_synthèse.xlsx" target="_blank" rel="noopener noreferrer" className="text-4xl">
+                <a href={`${import.meta.env.BASE_URL}Tab_synthèse.xlsx`} target="_blank" rel="noopener noreferrer" className="text-4xl">
                   <FaFileExcel />
                 </a>
               </li>
@@ -88,7 +88,7 @@ function Landing() {
               </li>
               <li className="hover:scale-125 transition-transform">
                 <a 
-                  href="../public/Mon-cv.pdf" 
+                  href={`${import.meta.env.BASE_URL}Mon-cv.pdf`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-5xl text-white flex flex-col items-center gap-2"
@@ -100,7 +100,7 @@ function Landing() {
               </li>
               <li className="hover:scale-125 transition-transform">
                 <a 
-                  href="../public/Tab_synthèse.xlsx" 
+                  href={`${import.meta.env.BASE_URL}Tab_synthèse.xlsx`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-5xl text-white flex flex-col items-center gap-2"
@@ -124,7 +124,7 @@ function Landing() {
 
       <section className="relative w-full">
         <img
-          src="../img/Background.jpg"
+          src={`${import.meta.env.BASE_URL}img/Background.jpg`}
           alt="Background"
           className="h-screen w-[45vw] left-0"
         />

@@ -15,7 +15,7 @@ function Project() {
                 Réaliser en groupe durant la première année de BTS. <br />
                 Réaliser en PHP, CSS et JavaScript, avec une base de donnée MySQL</p>
                 <img 
-                src="../../img/screen_bibli.png" 
+                src={`${import.meta.env.BASE_URL}img/screen_bibli.png`}
                 alt="projet bibliothèque" 
                 className="w-[75vw] h-[60vh]"
                 />
@@ -33,7 +33,7 @@ function Project() {
                 Réaliser en binôme durant la première année de BTS. <br />
                 Réaliser en Java</p>
                 <img 
-                    src="../../img/screen_RespireStat.png" 
+                    src={`${import.meta.env.BASE_URL}img/screen_RespireStat.png`}
                     alt="projet bibliothèque" 
                     className="w-[75vw] h-[60vh]"
                 />
@@ -50,7 +50,7 @@ function Project() {
                 Réaliser en binôme durant la première année de BTS. <br />
                 Réaliser en JavaScript, HTML et CSS</p>
                 <img 
-                    src="../../img/screen_facturation.png" 
+                    src={`${import.meta.env.BASE_URL}img/screen_facturation.png`}
                     alt="projet bibliothèque" 
                     className="w-[75vw] h-[60vh]"
                 />

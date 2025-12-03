@@ -32,7 +32,7 @@ function Content() {
             className=" h-[70vh] mt-[10vh] w-full object-cover"
             >
               <source 
-              src="../video/Bandeau1.mp4" 
+              src={`${import.meta.env.BASE_URL}video/Bandeau1.mp4`} 
               type="video/mp4"
               />
             </video>
@@ -62,7 +62,7 @@ function Content() {
           className="object-cover my-[15vh] w-[40vw]"
           >
               <source 
-              src="../video/Bandeau2.mp4"
+              src={`${import.meta.env.BASE_URL}video/Bandeau2.mp4`}
               type="video/mp4"
               />
           </video>
