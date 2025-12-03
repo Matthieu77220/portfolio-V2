@@ -12,7 +12,7 @@ function FlipCard({ title, logo, description }) {
   };
 
   return (
-    <div className="h-64 perspective-1000" onClick={handleClick}>
+    <div className="h-64" onClick={handleClick}>
       <div 
         className={`relative w-full h-full transition-transform duration-600 cursor-pointer ${
           isFlipped ? 'transform-[rotateY(180deg)]' : ''

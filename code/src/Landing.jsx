@@ -6,6 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { TbFileCv } from "react-icons/tb";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
+import { FaFileExcel } from "react-icons/fa";
 
 function Landing() {
   const navigate = useNavigate();
@@ -32,6 +33,11 @@ function Landing() {
               <li className="hover:scale-150 transition-transform">
                 <a href="../public/Mon-cv.pdf" target="_blank" rel="noopener noreferrer" className="text-4xl">
                   <TbFileCv />
+                </a>
+              </li>
+              <li className="hover:scale-150 transition-transform">
+                <a href="../public/Tab_synthèse.xlsx" target="_blank" rel="noopener noreferrer" className="text-4xl">
+                  <FaFileExcel />
                 </a>
               </li>
             </ul>
@@ -89,6 +95,18 @@ function Landing() {
                   onClick={() => setOpen(false)}
                 >
                   <TbFileCv />
+                  <span className="text-sm">CV</span>
+                </a>
+              </li>
+              <li className="hover:scale-125 transition-transform">
+                <a 
+                  href="../public/Tab_synthèse.xlsx" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-5xl text-white flex flex-col items-center gap-2"
+                  onClick={() => setOpen(false)}
+                >
+                  <FaFileExcel/>
                   <span className="text-sm">CV</span>
                 </a>
               </li>
