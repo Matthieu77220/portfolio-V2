@@ -26,15 +26,17 @@ function Content() {
           id="Me"
           className="space-y-10"
           initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
             className="flex flex-col gap-3 text-center"
             initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
@@ -52,8 +54,9 @@ function Content() {
           <motion.div
             className="overflow-hidden rounded-3xl border border-white/5 shadow-2xl shadow-black/30"
             initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <video
@@ -72,8 +75,9 @@ function Content() {
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           >
             <Me />
@@ -85,8 +89,9 @@ function Content() {
           id="Formation"
           className="space-y-12"
           initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="flex flex-col gap-3 text-center">
@@ -102,8 +107,9 @@ function Content() {
             <motion.div
               className="overflow-hidden rounded-3xl border border-white/5 shadow-2xl shadow-black/30"
               initial={{ opacity: 0, x: -25 }}
+              animate={{ opacity: 1, x: 0 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <video
@@ -120,8 +126,9 @@ function Content() {
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 25 }}
+              animate={{ opacity: 1, x: 0 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <Formation />
@@ -134,8 +141,9 @@ function Content() {
           id="Exp"
           className="space-y-10"
           initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="flex flex-col gap-3 text-center">
@@ -149,8 +157,9 @@ function Content() {
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Experience />
@@ -162,8 +171,9 @@ function Content() {
           id="Skill"
           className="space-y-10"
           initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="flex flex-col gap-3 text-center">
@@ -177,8 +187,9 @@ function Content() {
           <motion.div
             className="px-2 sm:px-6"
             initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Skill />
@@ -190,8 +201,9 @@ function Content() {
           id="Project"
           className="space-y-10"
           initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="flex flex-col gap-3 text-center">
@@ -205,8 +217,9 @@ function Content() {
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Project />
@@ -216,10 +229,11 @@ function Content() {
         {/* ==================== VEILLE TECHNOLOGIQUE ==================== */}
         <motion.section
           id="Veille"
-          className="space-y-8 rounded-3xl border border-white/5 bg.white/5 p-8 text-center shadow-2xl shadow-black/30 backdrop-blur"
+          className="space-y-8 rounded-3xl border border-white/5 bg-white/5 p-8 text-center shadow-2xl shadow-black/30 backdrop-blur"
           initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="flex flex-col gap-3">
