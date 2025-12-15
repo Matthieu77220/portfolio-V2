@@ -1,125 +1,147 @@
-import { useState } from 'react';
-import { FaHtml5, FaCss3, FaReact, FaJava, FaPhp, FaNodeJs, FaPython, FaGitAlt } from "react-icons/fa";
+import { useState } from "react";
+import {
+  FaHtml5,
+  FaCss3,
+  FaReact,
+  FaJava,
+  FaPhp,
+  FaNodeJs,
+  FaPython,
+  FaGitAlt,
+} from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiFastapi, SiMysql } from "react-icons/si";
 
-function FlipCard({ title, logo, description }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+const cards = [
+  {
+    title: "HTML",
+    logo: <FaHtml5 />,
+    description:
+      "Structure des pages et sémantique pour des interfaces accessibles.",
+  },
+  {
+    title: "CSS",
+    logo: <FaCss3 />,
+    description: "Mise en forme responsive et animations légères.",
+  },
+  {
+    title: "TailwindCSS",
+    logo: <RiTailwindCssFill />,
+    description: "Design system utilitaire pour prototyper vite et bien.",
+  },
+  {
+    title: "JavaScript",
+    logo: <IoLogoJavascript />,
+    description: "Interactions riches et logique front moderne.",
+  },
+  {
+    title: "React",
+    logo: <FaReact />,
+    description: "Interfaces dynamiques, composants réutilisables.",
+  },
+  {
+    title: "Java",
+    logo: <FaJava />,
+    description:
+      "Bases solides pour applications robustes et orientées objet.",
+  },
+  {
+    title: "PHP",
+    logo: <FaPhp />,
+    description: "Backends simples et intégration avec bases relationnelles.",
+  },
+  {
+    title: "Node.js",
+    logo: <FaNodeJs />,
+    description: "APIs modernes et services backend légers.",
+  },
+  {
+    title: "Python",
+    logo: <FaPython />,
+    description: "Scripts, APIs et explorations data polyvalentes.",
+  },
+  {
+    title: "FastAPI",
+    logo: <SiFastapi />,
+    description: "API Python rapides, typées et documentées automatiquement.",
+  },
+  {
+    title: "MySQL",
+    logo: <SiMysql />,
+    description: "Modélisation et requêtes SQL pour la persistance.",
+  },
+  {
+    title: "Git",
+    logo: <FaGitAlt />,
+    description: "Versionning et collaboration fluide sur les projets.",
+  },
+];
 
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
-  };
+function FlipCard({ title, logo, description }) {
+  const [flipped, setFlipped] = useState(false);
 
   return (
-    <div className="h-64" onClick={handleClick}>
-      <div 
-        className={`relative w-full h-full transition-transform duration-600 cursor-pointer ${
-          isFlipped ? 'transform-[rotateY(180deg)]' : ''
+    <article
+      onClick={() => setFlipped((v) => !v)}
+      className="group h-56 cursor-pointer rounded-3xl border border-white/5 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur transition hover:-translate-y-1 hover:shadow-[#F3752B]/30"
+      style={{ perspective: "1200px" }}
+    >
+      <div
+        className={`relative h-full w-full transition-transform duration-500 ${
+          flipped ? "rotate-y-180" : ""
         }`}
         style={{
-          transformStyle: 'preserve-3d',
-          transition: 'transform 0.6s'
+          transformStyle: "preserve-3d",
         }}
       >
-  
-        <div 
-          className="absolute w-full h-full bg-[#FFF07C] rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center hover:scale-105 transition-all duration-200"
-          style={{ 
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden'
+        <div
+          className="absolute inset-0 flex flex-col justify-center gap-3 rounded-3xl p-6 backface-hidden"
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
           }}
         >
-          <div className="text-6xl text-[#F3752B] mb-4">{logo}</div>
-          <h3 className="text-2xl text-[#F3752B] font-semibold">{title}</h3>
+          <div className="flex items-center gap-3">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#F3752B]/15 text-2xl text-[#F3752B] shadow-inner shadow-[#F3752B]/20">
+              {logo}
+            </div>
+            <h3 className="text-lg font-semibold text-white">{title}</h3>
+          </div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+            Cliquez pour retourner
+          </p>
         </div>
 
-    
-        <div 
-          className="absolute w-full h-full bg-[#F3752B] rounded-2xl shadow-xl p-6 flex items-center justify-center hover:scale-105 transition-all duration-200"
-          style={{ 
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)'
+        <div
+          className="absolute inset-0 rounded-3xl bg-[#F3752B] p-6 text-white shadow-2xl shadow-[#F3752B]/30 rotate-y-180 backface-hidden"
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
           }}
         >
-          <p className="text-[#FFF07C] text-center text-base leading-relaxed">{description}</p>
+          <div className="flex h-full flex-col justify-center gap-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
+              Description
+            </p>
+            <p className="text-sm leading-relaxed">{description}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+              Retour ↺
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
 function Skill() {
-  const cards = [
-    {
-      title: "HTML",
-      logo: <FaHtml5 />,
-      description: "Langage de structure permettant de créer l'ossature et le contenu des pages web."
-    },
-    {
-      title: "CSS",
-      logo: <FaCss3 />,
-      description: "Langage de style utilisé pour concevoir l'apparence et la mise en forme des pages web."
-    },
-    {
-      title: "TailwindCSS",
-      logo: <RiTailwindCssFill />,
-      description: "Framework CSS utilitaire pour créer des designs modernes et réactifs rapidement."
-    },
-    {
-      title: "JavaScript",
-      logo: <IoLogoJavascript />,
-      description: "Langage de programmation pour le web, utilisé pour créer des applications interactives."
-    },
-    {
-      title: "React",
-      logo: <FaReact />,
-      description: "Bibliothèque JavaScript pour construire des interfaces utilisateur modernes et dynamiques."
-    },
-    {
-      title:'Java',
-      logo: <FaJava />,
-      description: "Langage de programmation orienté objet, utilisé pour développer des applications robustes et évolutives."
-    },
-    {
-      title: "PHP",
-      logo: <FaPhp />,
-      description: "Langage de script côté serveur, utilisé pour développer des applications web dynamiques."
-    },
-    {
-      title: "Node.JS",
-      logo: <FaNodeJs />,
-      description: "Environnement JavaScript côté serveur pour créer des applications modernes, rapides et évolutives."
-    },
-    { 
-      title: "Python",
-      logo: <FaPython />,
-      description: "Langage de programmation polyvalent, utilisé pour le développement web, l'analyse de données et l'intelligence artificielle."
-    },
-    {
-      title: "FastAPI",
-      logo: <SiFastapi />,
-      description: "Framework web moderne pour Python, utilisé pour créer des API rapides et performantes." 
-    },
-    {
-      title: "MySQL",
-      logo: <SiMysql />,
-      description: "Système de gestion de base de données relationnelle, utilisé pour stocker et gérer des données."
-    },
-    {
-      title: "Git",
-      logo: <FaGitAlt />,
-      description: "Système de contrôle de version distribué, utilisé pour suivre les modifications du code et collaborer efficacement."
-    }
-  ];
-
   return (
-    <section id="skills" className="max-w-4xl mx-auto mb-32 px-4">
-      <div className="grid md:grid-cols-3 gap-8">
-        {cards.map((item, idx) => (
+    <section id="skills" className="mx-auto max-w-5xl">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {cards.map((item) => (
           <FlipCard
-            key={idx}
+            key={item.title}
             title={item.title}
             logo={item.logo}
             description={item.description}

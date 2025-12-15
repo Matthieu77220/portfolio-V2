@@ -1,190 +1,262 @@
-import {useNavigate} from 'react-router'
-import {Cpu, Code} from 'lucide-react'
-import Scroll from './components/Scroll';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import MouseTrail from './components/MouseTrail';
-import Me from './components/Me';
-import Formation from './components/Formation';
-import Experience from './components/Experience';
-import Skill from './components/Skill';
-import Project from './components/Project';
+import { useNavigate } from "react-router";
+import { Cpu, Code } from "lucide-react";
+import { motion } from "framer-motion";
+import Scroll from "./components/Scroll";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import MouseTrail from "./components/MouseTrail";
+import Me from "./components/Me";
+import Formation from "./components/Formation";
+import Experience from "./components/Experience";
+import Skill from "./components/Skill";
+import Project from "./components/Project";
 
 function Content() {
   const navigate = useNavigate();
   
   return (
-    <>
+    <div className="relative min-h-screen overflow-hidden bg-[#0d0d11] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-[#0d0d11] via-[#151621] to-[#0d0d11] opacity-90" />
       <Header />
       <Scroll />
-      
-      {/* ==================== QUI JE SUIS ==================== */}
-      <section className="flex flex-col px-4 sm:px-6 lg:px-8">
-        <h1 className="text-center font-bold text-[#F3752B] underline decoration-solid 
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-        mt-16 sm:mt-20 md:mt-24" 
-        id="Me">
-          Matthieu Dietrich
-        </h1>
-        
-        <section className="relative flex p-0 mx-0 w-full">
-          <video 
-            muted 
-            autoPlay
-            loop
-            className="w-full object-cover mt-8 sm:mt-12 md:mt-16
-            h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh]"
+
+      <main className="relative z-10 mx-auto flex max-w-6xl flex-col gap-20 px-4 pb-24 pt-24 sm:px-6 lg:px-8 lg:pb-32 lg:pt-28">
+        {/* ==================== QUI JE SUIS ==================== */}
+        <motion.section
+          id="Me"
+          className="space-y-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <motion.div
+            className="flex flex-col gap-3 text-center"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
           >
-            <source 
-              src={`${import.meta.env.BASE_URL}video/Bandeau1.mp4`} 
-              type="video/mp4"
-            />
-          </video>
-        </section>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+              Introduction
+            </p>
+            <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+              Matthieu Dietrich
+            </h1>
+            <p className="text-base text-white/75 sm:text-lg">
+              Développeur en devenir, passionné par la création d’expériences
+              numériques performantes et élégantes.
+            </p>
+          </motion.div>
 
-        <section className="flex justify-center my-8 sm:my-12 md:my-16 px-4 sm:px-8 md:px-16 lg:px-24">
-          <Me />
-        </section>
-      </section>
-
-      {/* ==================== MA FORMATION ==================== */}
-      <section className="flex flex-col px-4 sm:px-6 lg:px-8">
-        <h2 className="text-[#F3752B] text-center font-bold underline decoration-solid 
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-        mt-16 sm:mt-20 md:mt-24" 
-        id="Formation">
-          Ma formation
-        </h2>
-
-   
-        <section className="hidden lg:flex relative">
-          <section className="relative flex p-0 mx-0">
+          <motion.div
+            className="overflow-hidden rounded-3xl border border-white/5 shadow-2xl shadow-black/30"
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
             <video
               muted
               autoPlay
               loop
-              className="object-cover my-24 w-[40vw]"
+              className="h-[45vh] w-full object-cover sm:h-[55vh] lg:h-[65vh]"
             >
-              <source 
-                src={`${import.meta.env.BASE_URL}video/Bandeau2.mp4`}
+              <source
+                src={`${import.meta.env.BASE_URL}video/Bandeau1.mp4`}
                 type="video/mp4"
               />
             </video>
-          </section>
+          </motion.div>
 
-          <section className="w-[45vw] absolute right-20 mt-[55vh]">
-            <Formation />
-          </section>
-        </section>
-
-        
-        <section className="lg:hidden flex flex-col items-center mt-8 sm:mt-12 px-4 sm:px-8">
-          <video
-            muted
-            autoPlay
-            loop
-            className="object-cover w-full max-w-2xl rounded-xl mb-8
-            h-[30vh] sm:h-[40vh]"
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           >
-            <source 
-              src={`${import.meta.env.BASE_URL}video/Bandeau2.mp4`}
-              type="video/mp4"
-            />
-          </video>
-          <Formation />
-        </section>
-      </section>
+            <Me />
+          </motion.div>
+        </motion.section>
 
-      {/* ==================== MON EXPÉRIENCE ==================== */}
-      <section className="flex flex-col px-4 sm:px-6 lg:px-8">
-        <h2 className="text-[#F3752B] text-center font-bold underline decoration-solid 
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-        mt-16 sm:mt-20 md:mt-24" 
-        id="Exp">
-          Mon expérience professionnelle
-        </h2>
+        {/* ==================== MA FORMATION ==================== */}
+        <motion.section
+          id="Formation"
+          className="space-y-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="flex flex-col gap-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+              Parcours
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+              Ma formation
+            </h2>
+          </div>
 
-        <section className="flex justify-center mt-8 sm:mt-12 md:mt-16 px-4 sm:px-8">
-          <Experience />
-        </section>
-      </section>
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <motion.div
+              className="overflow-hidden rounded-3xl border border-white/5 shadow-2xl shadow-black/30"
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <video
+                muted
+                autoPlay
+                loop
+                className="h-[32vh] w-full object-cover sm:h-[40vh] lg:h-full"
+              >
+                <source
+                  src={`${import.meta.env.BASE_URL}video/Bandeau2.mp4`}
+                  type="video/mp4"
+                />
+              </video>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <Formation />
+            </motion.div>
+          </div>
+        </motion.section>
 
-      {/* ==================== MES COMPÉTENCES ==================== */}
-      <section className="flex flex-col px-4 sm:px-6 lg:px-8">
-        <h2 className="text-[#F3752B] text-center font-bold underline decoration-solid 
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-        my-16 sm:my-20 md:my-24" 
-        id="Skill">
-          Mes compétences
-        </h2>
-        <section className="px-4 sm:px-8 md:px-12">
-          <Skill />
-        </section>
-      </section>
+        {/* ==================== MON EXPÉRIENCE ==================== */}
+        <motion.section
+          id="Exp"
+          className="space-y-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="flex flex-col gap-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+              Expérience
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+              Mon expérience professionnelle
+            </h2>
+          </div>
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Experience />
+          </motion.div>
+        </motion.section>
 
-      {/* ==================== MES PROJETS ==================== */}
-      <section className="flex flex-col px-4 sm:px-6 lg:px-8">
-        <h2 className="text-[#F3752B] text-center font-bold underline decoration-solid 
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-        my-12 sm:my-16 md:my-20" 
-        id="Project">
-          Mes projets
-        </h2>
-        <section className="flex justify-center mt-8 sm:mt-12 md:mt-16 px-4 sm:px-8">
-          <Project />
-        </section>
-      </section>
+        {/* ==================== MES COMPÉTENCES ==================== */}
+        <motion.section
+          id="Skill"
+          className="space-y-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="flex flex-col gap-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+              Compétences
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+              Mes compétences
+            </h2>
+          </div>
+          <motion.div
+            className="px-2 sm:px-6"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Skill />
+          </motion.div>
+        </motion.section>
 
-      {/* ==================== VEILLE TECHNOLOGIQUE ==================== */}
-      <section className="flex flex-col items-center px-4 sm:px-6 lg:px-8 
-      my-16 sm:my-20 md:my-24
-      mb-32 sm:mb-36 md:mb-24">
-        <h2 className="text-[#F3752B] text-center font-bold underline decoration-solid 
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-        mb-8 sm:mb-12" 
-        id="Veille">
-          Veille Technologique
-        </h2>
-        
-        <section className="bg-[#FFF07C] text-[#F3752B] rounded-2xl 
-        p-6 sm:p-8 md:p-10 lg:p-12
-        w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl
-        transform transition-all duration-300 
-        hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/30">
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
-            <Cpu className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
-            <h3 className="font-bold text-center
-            text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+        {/* ==================== MES PROJETS ==================== */}
+        <motion.section
+          id="Project"
+          className="space-y-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="flex flex-col gap-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+              Réalisations
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+              Mes projets
+            </h2>
+          </div>
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Project />
+          </motion.div>
+        </motion.section>
+
+        {/* ==================== VEILLE TECHNOLOGIQUE ==================== */}
+        <motion.section
+          id="Veille"
+          className="space-y-8 rounded-3xl border border-white/5 bg.white/5 p-8 text-center shadow-2xl shadow-black/30 backdrop-blur"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="flex flex-col gap-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+              Veille
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+              Veille Technologique
+            </h2>
+          </div>
+
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
+            <Cpu className="h-10 w-10 text-[#F3752B]" />
+            <h3 className="text-2xl font-semibold sm:text-3xl lg:text-4xl">
               WebAssembly
             </h3>
-            <Code className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
+            <Code className="h-10 w-10 text-[#F3752B]" />
           </div>
-          
-          <p className="text-center font-semibold
-          text-base sm:text-lg md:text-xl lg:text-2xl
-          mb-6 sm:mb-8">
+
+          <p className="text-base text-white/80 sm:text-lg lg:text-xl">
             Le futur de la performance web
           </p>
-          
+
           <div className="flex justify-center">
             <button
               onClick={() => navigate("/Veille")}
-              className="bg-[#F3752B] text-[#FFF07C] font-bold rounded-lg 
-              px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4
-              text-sm sm:text-base md:text-lg
-              hover:bg-[#d86524] transition duration-300 hover:scale-105 shadow-lg
-              w-full sm:w-auto"
+              className="rounded-full bg-[#F3752B] px-6 py-3 text-base font-semibold text-white shadow-xl shadow-[#F3752B]/30 transition hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-[#F3752B]/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/80"
             >
               Aller vers la présentation
             </button>
           </div>
-        </section>
-      </section>
+        </motion.section>
+      </main>
 
       <Footer />
       <MouseTrail />
-    </>
+    </div>
   );
 }
 

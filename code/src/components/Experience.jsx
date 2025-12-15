@@ -1,48 +1,40 @@
 function Experience() {
-    return ( 
-        <>
-        <section className="
-        bg-[#FFF07C] w-[80vw] text-center rounded-xl mb-[10vh]
-         transform-3d perspective-origin-bottom perspective-midrange transition duration-300
-         hover:translate-z-8 hover:rotate-x-20 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300 hover:ring-[#F3752B]
-        ">
-            <h2 className="text-4xl font-bold text-[#F3752B] underline decoration-solid my-[2vh] tracking-wide">
-                Stage développeur Full-Stack - Saint-Maure-des-Fossés
-            </h2>
+  return (
+    <section className="w-full max-w-5xl rounded-3xl border border-white/5 bg-white/5 p-8 shadow-2xl shadow-black/30 backdrop-blur">
+      <div className="flex flex-col gap-3 text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+          Stage développeur Full-Stack
+        </p>
+        <h3 className="text-3xl font-bold text-white sm:text-4xl">
+          CRM pour un courtier en prêt immobilier (Saint-Maur-des-Fossés)
+        </h3>
+        <p className="text-base text-white/80 sm:text-lg">
+          Développement d&apos;une MVP permettant de centraliser les dossiers
+          clients et le suivi des courtiers.
+        </p>
+      </div>
 
-            <h3 className="text-3xl font-semibold text-[#F3752B] underline my-[2vh] tracking-wide">
-                le projet :
-            </h3>
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl bg-white/5 p-6 shadow-lg shadow-black/20">
+          <h4 className="text-lg font-semibold text-white">Objectifs clés</h4>
+          <ul className="mt-3 space-y-2 text-sm text-white/80 sm:text-base">
+            <li>• Création et gestion des comptes courtiers</li>
+            <li>• Centralisation clients, co-clients et apporteurs</li>
+            <li>• Suivi des dossiers et des étapes métier</li>
+          </ul>
+        </div>
 
-            <p className="text-xl font-normal text-[#F3752B] my-[2vh] tracking-wide">
-                Développement d'une MVP d'un CRM pour courtier en prêt immobilier
-            </p>
-
-            <h3 className="text-3xl font-semibold text-[#F3752B] underline my-[2vh] tracking-wide">
-                les objectifs :
-            </h3>
-                <div className="flex flex-col items-center">
-                    <div className="text-xl text-[#F3752B] text-left space-y-2 ml-[15vw] tracking-wide">
-                        <div>★ Création de compte pour Courtier</div>
-                        <div>★ Possbilité de gérer</div>
-                        <div>★ Gestion des Clients, Co-Clients, Apporteur de dossier, Dossier</div>
-                    </div>
-                </div>
-
-            <h3 className="text-3xl font-semibold text-[#F3752B] underline my-[2vh] tracking-wide">
-                Les technos :
-            </h3>
-
-            <div className="flex flex-col items-center my-[2vh]">
-                <div className="text-xl text-[#F3752B] text-left space-y-2 mr-[5vw] tracking-wide">
-                    <div>★ Python/FastAPI</div>
-                    <div>★ Mysql/PhpMyAdmin</div>
-                    <div>★ React/Typescript/Tailwindcss</div>
-                </div>
-            </div>
-        </section>
-        </>
-     );
+        <div className="rounded-2xl bg-white/5 p-6 shadow-lg shadow-black/20">
+          <h4 className="text-lg font-semibold text-white">Stack utilisée</h4>
+          <ul className="mt-3 space-y-2 text-sm text-white/80 sm:text-base">
+            <li>• Python / FastAPI</li>
+            <li>• MySQL / PhpMyAdmin</li>
+            <li>• React / TypeScript / Tailwind CSS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Experience;

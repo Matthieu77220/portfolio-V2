@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MouseTrail from "./components/MouseTrail";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -11,140 +11,155 @@ import { FaFileExcel } from "react-icons/fa";
 function Landing() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const navLinks = [
+    {
+      label: "GitHub",
+      href: "https://github.com/Matthieu77220",
+      icon: <FaGithub />,
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/matthieu-dietrich-6b441b390/",
+      icon: <FaLinkedin />,
+    },
+    {
+      label: "CV",
+      href: `${import.meta.env.BASE_URL}Mon-cv.pdf`,
+      icon: <TbFileCv />,
+    },
+    {
+      label: "Synthèse",
+      href: `${import.meta.env.BASE_URL}Tab_synthèse.xlsx`,
+      icon: <FaFileExcel />,
+    },
+  ];
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
-    <div className="flex justify-center">
-      <header className="z-50 fixed top-0 w-full">
-        
-       
-        <section className="hidden lg:flex">
-          <nav>
-            <ul className="flex absolute right-0 my-[4vh] px-[8vw] py-[2vh] gap-8 rounded-xl text-white bg-[#F3752B] lg:mx-[4vw] xl:mx-[8vw]">
-              <li className="hover:scale-150 transition-transform">
-                <a href="https://github.com/Matthieu77220" target="_blank" rel="noopener noreferrer" className="text-4xl">
-                  <FaGithub />
-                </a>
-              </li>
-              <li className="hover:scale-150 transition-transform">
-                <a href="https://www.linkedin.com/in/matthieu-dietrich-6b441b390/" target="_blank" rel="noopener noreferrer" className="text-4xl">
-                  <FaLinkedin />
-                </a>
-              </li>
-              <li className="hover:scale-150 transition-transform">
-                <a href={`${import.meta.env.BASE_URL}Mon-cv.pdf`} target="_blank" rel="noopener noreferrer" className="text-4xl">
-                  <TbFileCv />
-                </a>
-              </li>
-              <li className="hover:scale-150 transition-transform">
-                <a href={`${import.meta.env.BASE_URL}Tab_synthèse.xlsx`} target="_blank" rel="noopener noreferrer" className="text-4xl">
-                  <FaFileExcel />
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </section>
+    <div className="relative min-h-screen overflow-hidden bg-[#0d0d11] text-white">
+      <div className="absolute inset-0 bg-linear-to-br from-[#0d0d11] via-[#151621] to-[#0d0d11] opacity-90" />
+      <img
+        src={`${import.meta.env.BASE_URL}img/Background.jpg`}
+        alt="Fond héro"
+        className="absolute inset-0 h-full w-full object-cover opacity-20 sm:opacity-40"
+      />
 
+      <header className="fixed top-0 z-50 w-full">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8">
+          <div className="rounded-full bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 backdrop-blur">
+            Portfolio
+          </div>
 
-        <section className="flex lg:hidden items-center justify-end p-4">
-          <button 
-            type="button"
-            onClick={() => setOpen(!open)}
-            className="text-4xl text-white bg-[#F3752B] p-3 rounded-lg z-50 relative"
-            aria-label="Toggle menu"
-          >
-            {open ? <IoClose /> : <RxHamburgerMenu />}
-          </button>
+          <section className="hidden lg:flex">
+            <nav>
+              <ul className="flex items-center gap-4 rounded-full bg-[#F3752B]/90 px-6 py-3 text-white shadow-xl shadow-[#F3752B]/30 backdrop-blur">
+                {navLinks.map(({ href, icon, label }) => (
+                  <li key={label} className="transition-transform hover:scale-110">
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full px-3 py-2 text-lg font-semibold hover:bg-white/10"
+                    >
+                      <span className="text-2xl">{icon}</span>
+                      <span className="text-sm">{label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </section>
 
-          <nav className={`
-            fixed top-0 right-0 h-screen w-64 bg-[#F3752B] 
-            transform transition-transform duration-300 ease-in-out
-            ${open ? 'translate-x-0' : 'translate-x-full'}
-            flex items-center justify-center
-          `}>
-            <ul className="flex flex-col gap-8 text-center">
-              <li className="hover:scale-125 transition-transform">
-                <a 
-                  href="https://github.com/Matthieu77220" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-5xl text-white flex flex-col items-center gap-2"
-                  onClick={() => setOpen(false)}
-                >
-                  <FaGithub />
-                  <span className="text-sm">GitHub</span>
-                </a>
-              </li>
-              <li className="hover:scale-125 transition-transform">
-                <a 
-                  href="https://www.linkedin.com/in/matthieu-dietrich-6b441b390/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-5xl text-white flex flex-col items-center gap-2"
-                  onClick={() => setOpen(false)}
-                >
-                  <FaLinkedin />
-                  <span className="text-sm">LinkedIn</span>
-                </a>
-              </li>
-              <li className="hover:scale-125 transition-transform">
-                <a 
-                  href={`${import.meta.env.BASE_URL}Mon-cv.pdf`}
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-5xl text-white flex flex-col items-center gap-2"
-                  onClick={() => setOpen(false)}
-                >
-                  <TbFileCv />
-                  <span className="text-sm">CV</span>
-                </a>
-              </li>
-              <li className="hover:scale-125 transition-transform">
-                <a 
-                  href={`${import.meta.env.BASE_URL}Tab_synthèse.xlsx`}
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-5xl text-white flex flex-col items-center gap-2"
-                  onClick={() => setOpen(false)}
-                >
-                  <FaFileExcel/>
-                  <span className="text-sm">CV</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <section className="flex items-center lg:hidden">
+            <button
+              type="button"
+              onClick={() => setOpen(!open)}
+              className="relative z-50 rounded-xl bg-[#F3752B] p-3 text-3xl text-white shadow-lg shadow-[#F3752B]/40 transition hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/80"
+              aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              {open ? <IoClose /> : <RxHamburgerMenu />}
+            </button>
 
-          {open && (
-            <div 
-              className="fixed inset-0 bg-opacity-50 -z-10"
-              onClick={() => setOpen(false)}
-            />
-          )}
-        </section>
+            <nav
+              className={`
+                fixed inset-y-0 right-0 z-40 w-72 max-w-[80vw] bg-[#151621]/95
+                pt-24 pb-10 px-6 shadow-2xl shadow-black/40 backdrop-blur
+                transform transition-transform duration-300 ease-in-out
+                ${open ? "translate-x-0" : "translate-x-full"}
+              `}
+            >
+              <ul className="flex flex-col gap-6 text-center">
+                {navLinks.map(({ href, icon, label }) => (
+                  <li key={label} className="transition-transform hover:scale-105">
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center gap-2 rounded-2xl bg-white/5 px-4 py-3 text-white shadow-lg shadow-black/20 hover:bg-white/10"
+                      onClick={() => setOpen(false)}
+                    >
+                      <span className="text-4xl">{icon}</span>
+                      <span className="text-sm font-semibold tracking-wide uppercase">
+                        {label}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {open && (
+              <div
+                className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm"
+                onClick={() => setOpen(false)}
+              />
+            )}
+          </section>
+        </div>
       </header>
 
-      <section className="relative w-full">
-        <img
-          src={`${import.meta.env.BASE_URL}img/Background.jpg`}
-          alt="Background"
-          className="h-screen w-[45vw] left-0"
-        />
-      </section>
+      <main className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-4 pb-16 pt-28 sm:px-8 lg:pt-32">
+        <div className="max-w-3xl space-y-6">
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70 backdrop-blur">
+            Bienvenue
+          </p>
+          <h1 className="text-4xl font-bold leading-tight text-white drop-shadow-sm sm:text-5xl lg:text-6xl">
+            Bienvenue sur mon Portfolio
+          </h1>
+          <p className="max-w-2xl text-base text-white/80 sm:text-lg">
+            Explore mes projets, mon parcours et mes compétences. Navigue
+            librement ou télécharge mon CV pour une vue d’ensemble rapide.
+          </p>
 
-      <section className="fixed mt-[30vh] ml-[10vw]">
-        <h1 className="text-[#F3752B] font-bold text-4xl text-shadow-md text-shadow-gray-400 sm:text-5xl sm:ml-[8vw] md:text-5xl md:ml-[15vw] lg:text-6xl xl:text-7xl xl:mr-[10vw] xl:ml-10">
-          Bienvenue sur mon Portfolio 
-        </h1>
-      </section>
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              onClick={() => navigate("/content")}
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#F3752B] px-6 py-3 text-lg font-semibold text-white shadow-xl shadow-[#F3752B]/30 transition hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-[#F3752B]/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/80"
+            >
+              C&apos;est parti !
+              <span className="transition duration-200 group-hover:translate-x-1">
+                →
+              </span>
+            </button>
+            <a
+              href={`${import.meta.env.BASE_URL}Mon-cv.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-lg font-semibold text-white/80 backdrop-blur transition hover:border-white hover:text-white"
+            >
+              Voir le CV
+            </a>
+          </div>
+        </div>
+      </main>
 
-      <section className="fixed mt-[60vh] transform-3d perspective-origin-bottom perspective-near">
-        <button
-          type="button"
-          onClick={() => navigate("/content")}
-          className="cursor-pointer border-2 bg-[#F3752B] text-white rounded-full p-3 w-3xs transition duration-300 sm:p-4 sm:w-xs sm:text-xl sm:font-semibold lg:p-5 lg:w-sm lg:text-2xl lg:font-bold hover:translate-z-8 hover:rotate-x-13 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300"
-        >
-          <p>C'est parti !</p>
-        </button>
-      </section>
       <MouseTrail />
     </div>
   );

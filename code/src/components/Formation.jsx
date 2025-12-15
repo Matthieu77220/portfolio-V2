@@ -1,20 +1,20 @@
 function Formation() {
-    return ( 
-    <>
-        <section className="
-        bg-[#FFF07C] rounded-2xl justift-center transition duration-300 px-3 
-        transform-3d perspective-origin-bottom perspective-near
-        hover:translate-z-8 hover:rotate-x-20 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300 hover:ring-[#F3752B]
-        ">
-            <h2 className="text-[#F3752B] text-4xl font-bold underline text-center py-[2vh]">BTS SIO SLAM</h2>
-            <p className="text-xl font-semibold text-[#F3752B] text-center py-[8vh]"> 
-              Le BTS SIO(Service Informatique aux organisations) SLAM(Solutions Logiciels Applications Métier) <br />
-              Me permet d'aborder la création et gestion de projet web et applications concrets. <br />
-              Passant par le frontend, backend, base de données et gestion de la temporalité dans un projet seul et en groupe.
-            </p>
-        </section>
-    </> 
-    );
+  return (
+    <section className="w-full rounded-3xl border border-white/5 bg-white/5 p-8 shadow-2xl shadow-black/30 backdrop-blur">
+      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+        Parcours
+      </p>
+      <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+        BTS SIO – Option SLAM
+      </h3>
+      <p className="mt-4 text-base leading-relaxed text-white/80 sm:text-lg">
+        Une formation centrée sur la conception et le pilotage de projets web
+        et applicatifs : frontend, backend, bases de données et organisation du
+        travail en équipe comme en solo. De quoi livrer des solutions concrètes
+        avec méthode et rigueur.
+      </p>
+    </section>
+  );
 }
 
 export default Formation;

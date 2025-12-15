@@ -1,79 +1,72 @@
+const projects = [
+  {
+    title: "Du Livre au Cinéma",
+    description:
+      "Site vitrine d'une bibliothèque fictive, réalisé en équipe durant la première année de BTS.",
+    tech: "PHP · CSS · JavaScript · MySQL",
+    image: `${import.meta.env.BASE_URL}img/screen_bibli.png`,
+    alt: "Capture du projet Du Livre au Cinéma",
+  },
+  {
+    title: "RespireStat",
+    description:
+      "Application lourde triant et affichant des statistiques issues d'un fichier CSV.",
+    tech: "Java · Travail en binôme",
+    image: `${import.meta.env.BASE_URL}img/screen_RespireStat.png`,
+    alt: "Capture du projet RespireStat",
+  },
+  {
+    title: "Générateur de facture",
+    description:
+      "Site générant des factures avec gestion des clients stockés en local storage.",
+    tech: "JavaScript · HTML · CSS",
+    image: `${import.meta.env.BASE_URL}img/screen_facturation.png`,
+    alt: "Capture du générateur de facture",
+  },
+  {
+    title: "Habitly",
+    description:
+      "Application mobile pour organiser des séances de sport, régimes, sommeil et suivi du poids.",
+    tech: "React Native · Node.js · MySQL",
+    image: null,
+    alt: "Aperçu Habitly",
+  },
+];
+
 function Project() {
-    return ( 
-        <>
-        <section className="flex flex-col my-[3vh]">
+  return (
+    <section className="grid gap-10 lg:grid-cols-2">
+      {projects.map((project) => (
+        <article
+          key={project.title}
+          className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-white/5 shadow-2xl shadow-black/30 backdrop-blur transition hover:-translate-y-1 hover:shadow-[#F3752B]/30"
+        >
+          {project.image ? (
+            <div className="relative h-56 w-full overflow-hidden bg-black/50">
+              <img
+                src={project.image}
+                alt={project.alt}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d11] via-transparent to-transparent opacity-60" />
+            </div>
+          ) : (
+            <div className="flex h-56 w-full items-center justify-center bg-white/5 text-white/60">
+              Aperçu à venir
+            </div>
+          )}
 
-
-            {/************************************* DU LIVRE AU CINEMA ***********************************************/}
-            <section className="
-            bg-[#FFF07C] text-[#F3752B] justify-center rounded-xl p-10 transition duration-300 my-[3vh]
-            transform-3d perspective-origin-bottom perspective-near
-            hover:translate-z-8 hover:rotate-x-20 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300 hover:ring-[#F3752B]
-            ">
-                <h2 className="text-center text-4xl underline font-bold my-[3vh]">Du Livre au Cinéma</h2>
-                <p className="text-center text-2xl font-semibold my-[3vh]">Site vitrine d'une bibliothèque fictive. <br />
-                Réaliser en groupe durant la première année de BTS. <br />
-                Réaliser en PHP, CSS et JavaScript, avec une base de donnée MySQL</p>
-                <img 
-                src={`${import.meta.env.BASE_URL}img/screen_bibli.png`}
-                alt="projet bibliothèque" 
-                className="w-[75vw] h-[60vh]"
-                />
-            </section>
-            
-
-            {/************************************* RESPIRESTATS ***********************************************/}
-            <section className="
-            bg-[#FFF07C] text-[#F3752B] justify-center rounded-xl p-10 transition duration-300 my-[3vh]
-            transform-3d perspective-origin-bottom perspective-near
-            hover:translate-z-8 hover:rotate-x-20 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300 hover:ring-[#F3752B]
-            ">
-                <h2 className="text-center text-4xl underline font-bold my-[3vh]">RespireStat</h2>
-                <p className="text-center text-2xl font-semibold my-[3vh]">Application lourde triant et affichant des stats venant d'un .csv<br />
-                Réaliser en binôme durant la première année de BTS. <br />
-                Réaliser en Java</p>
-                <img 
-                    src={`${import.meta.env.BASE_URL}img/screen_RespireStat.png`}
-                    alt="projet respirestat" 
-                    className="w-[75vw] h-[60vh]"
-                />
-            </section>
-
-        {/************************************* Facturation ***********************************************/}
-        <section className="
-            bg-[#FFF07C] text-[#F3752B] justify-center rounded-xl p-10 transition duration-300 my-[3vh]
-            transform-3d perspective-origin-bottom perspective-near
-            hover:translate-z-8 hover:rotate-x-20 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300 hover:ring-[#F3752B]
-            ">
-                <h2 className="text-center text-4xl underline font-bold my-[3vh]">Générateur de facture</h2>
-                <p className="text-center text-2xl font-semibold my-[3vh]">Site Générant des factures avec des clients enregistrés en local storage.<br />
-                Réaliser en binôme durant la première année de BTS. <br />
-                Réaliser en JavaScript, HTML et CSS</p>
-                <img 
-                    src={`${import.meta.env.BASE_URL}img/screen_facturation.png`}
-                    alt="projet facturation" 
-                    className="w-[75vw] h-[60vh]"
-                />
-            </section>
-
-        {/************************************* Facturation ***********************************************/}
-
-
-        <section className="
-            bg-[#FFF07C] text-[#F3752B] justify-center rounded-xl p-10 transition duration-300 my-[3vh]
-            transform-3d perspective-origin-bottom perspective-near
-            hover:translate-z-8 hover:rotate-x-20 hover:ring-2 hover:shadow-xl hover:shadow-gray-400/50 hover:transition hover:duration-300 hover:ring-[#F3752B]
-            ">
-                <h2 className="text-center text-4xl underline font-bold my-[3vh]">Habitly</h2>
-                <p className="text-center text-2xl font-semibold my-[3vh]">Application mobile pour organiser et configurer des séances de sports, des régimes, du temps de sommeil et de l'évolution du poids<br />
-                Projet perso débuté en novembre 2025<br />
-                Réaliser React-native, node.js et une base de donnée MySQL</p>
-        </section>
-            
-
-        </section>
-        </>
-     );
+          <div className="flex flex-1 flex-col gap-3 p-6">
+            <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+            <p className="text-sm text-white/75">{project.description}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#F3752B]">
+              {project.tech}
+            </p>
+          </div>
+        </article>
+      ))}
+    </section>
+  );
 }
 
 export default Project;
